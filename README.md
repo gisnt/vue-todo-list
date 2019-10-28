@@ -1,2 +1,16 @@
-# vue-todo-list
-vue todo list example
+# Vue todo list example
+  Oct 2019, dqzhang@tom.com.
+  
+采用Vue在前端实现待办事项列表的示例代码。
+
+核心理念：
+挂载点、定义数据变量、定义计算属性、定义侦听器、定义事件，很多功能采用JS在前端就完成了。采用Vue，不再关心DOM，只关心数据变量，其值改变，则对应的html自动更新显示。
+
+什么是Vue.js(http://www.hubwiz.com/class/566e67417e7d40946afc5ddc)
+
+
+Vue.js是一个构建数据驱动的web界面的库。技术上，它重点集中在MVVM模式的ViewModel层，因此它非常容易学习，非常容易与其它库或已有项目整合。
+
+　　Vue.js的目标是通过尽可能简单的API实现响应的数据绑定和组合的视图组件。
+
+　　Vue.js 的核心是一个响应的数据绑定系统，它让数据与DOM保持同步非常简单。在使用jQuery手工操作DOM时，我们的代码常常是命令式的、重复的与易错的。Vue.js拥抱数据驱动的视图概念。通俗地讲，它意味着我们在普通HTML模板中使用特殊的语法将DOM “绑定”到底层数据。

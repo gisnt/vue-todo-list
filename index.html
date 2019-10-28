@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- vue2.5入门(https://www.imooc.com/learn/980) -->
+  <title>TodoList - Vue学习，挂载点、定义数据变量、定义计算属性、定义侦听器、定义事件，很多功能采用JS在前端就完成了。不再关心DOM，只关于数据变量，其值改变，则对应的html自动显示</title>
+  <script src="./vue.js"></script>
+</head>
+<body>
+	<!-- 挂载点 -->
+	<div id="root">
+		<!-- 下面为挂载点的模版信息 -->
+		<div>
+			<div>请输入要待办的事项，完成后点提交按钮加入待办事项列表。点击列表中的事项，可删除该事项</div>
+			<!-- v-model为数据双向绑定-->
+			<input v-model="inputValue"/>
+			<!-- 定义事件 -->
+			<button @click="handleClick">提交</button>
+			<div>上一次数据值: {{lastInputValue}}</div>
+			<div>列表数量: {{count}}</div>
+			<div>待办事项列表：</div>
+		</div>
+		<ul>
+			<!-- 循环处理 -->
+			<li v-for="(item,index) of list" :key="index" @Click="handleItemClick(item,index)">
+				{{item}}
+			</li>
+		</ul>
+	</div>
+	<script>
+		<!-- 定义Vue实例 -->
+		new Vue({
+			<!-- 定义挂载点，即HTML的元素id -->
+			el:"#root",
+			<!-- 定义数据 -->
+			data: {
+				inputValue: '',
+				list: [],
+				count: 0
+			},
+			<!-- 定义计算属性 -->
+			computed: {
+				lastInputValue: function(){
+					return this.inputValue
+				}
+			},
+			<!-- 侦听器 -->
+			watch: {
+				<!-- list有变量有变化执行下面函数 -->
+				list: function(){
+					<!-- this.count++ -->
+				}
+			},
+			<!-- 定义要处理的事件 -->
+			methods: {
+				handleClick: function() {
+					this.list.push(this.inputValue)
+					this.inputValue=''
+					this.count++
+				},
+				handleItemClick: function(item,index){
+					this.list.splice(index,1)
+					this.count--
+					alert("待办事项: " + item + " 已经删除！")
+				}
+			}
+		}
+		)
+	</script>
+</body>
+</html>
